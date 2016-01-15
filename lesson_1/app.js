@@ -5,13 +5,9 @@ var http = require("http");
 var fs = require("fs");
 var onRequest = function (req, res) {
     render(res, "./view/index.html", function (err, data) {
-        console.log(JSON.stringify(err));
         var mes=(err==null?data:"<font style='color:red'>程序出现错误,错误原因:"+err.toString()+"</font>");
         print(res, mes);
     })
-    //res.write("第一个 Node程序");
-    //
-    //res.end();
 }
 var render = function (res, html, callback) {
     fs.readFile(html, function (err, data) {
